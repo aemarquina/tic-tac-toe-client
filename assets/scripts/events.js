@@ -2,19 +2,23 @@
 // create variable and put path for api, and ui
 
 let board = [null, null, null, null, null, null, null, null, null]
-
 let count = 0
 $('.block').on('click', function () {
   // console.log(count)
 }
 )
+
+let gameOver = false
 // make sure that a clicking event is registered
 const clickT = function (event) {
   const block = event.target
-  const id = block.id
+  const id = event.target.id
   const player = (count % 2 === 0) ? 'X' : 'O'
-  const notplayer = (count % 2 !== 0) ? 'X' : 'O'
 
+  if (gameOver) {
+    $('.game-message').text('Game Over')
+    return
+  }
   if (board[id] !== null) {
     $('.game-message').text('Invalid Move')
     return
@@ -23,27 +27,35 @@ const clickT = function (event) {
     $('.game-message').text('')
   }
 
-  if (youWin(notplayer) === true) {
-    return
-  }
-  console.log(youWin(player))
   if (count % 2 === 0) {
     $(block).text('X')
+    $('.playerTurn').text('Player O turn')
     board[id] = 'X'
   } else {
     $(block).text('O')
+    $('.playerTurn').text('Player X turn')
     board[id] = 'O'
   }
 
   count++
+  if (getResult(player)) {
+    gameOver = true
+  }
 }
 
-function youWin (player) {
+function getResult (player) {
   if (count > 4) {
-    if (winner(player) === true) {
+    if (winner(player)) {
+      $('.game-message').text('You Win!')
+      $('.playerTurn').text('')
       return true
     }
-  }
+  } if (count === 9) {
+    $('.game-message').text('You Tie!')
+    $('.playerTurn').text('')
+    gameOver = true
+    return true
+  } return false
 }
 
 function winner (player) {
@@ -68,11 +80,17 @@ function winner (player) {
   return false
 }
 
-// add logic that will keep the mark on the board
-// add logic that will alternate between x and o
-// add logic to register after every turn if someone had won after 3rd move
-// find best way to add logic for winning         
+const startNewGame = function () {
+  event.preventDefault()
+  board = [null, null, null, null, null, null, null, null, null]
+  $('.block').text('')
+  $('.game-message').text('')
+  gameOver = false
+  count = 0
+
+}
 
 module.exports = {
-  clickT
+  clickT,
+  startNewGame
 }
