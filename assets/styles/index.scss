@@ -7,6 +7,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+h1  {
+  font-family: 'Nanum Pen Script', cursive;
+  color: white;
+  text-shadow: 2px 2px #bdaa06;
+  font-size: 100px;
+  background-color: rgba(252, 219, 86, 0.384);
+}
+
 body {
   background: url("https://wallpapercave.com/wp/01lNAQk.jpg") center;
   height: 100%;
@@ -40,8 +48,12 @@ body {
   border: 3px solid white;
 }
 
+.block:hover{
+  background-color: rgba(248, 248, 90, 0.842);
+}
+
 header {
-  background-color: rgba(223, 207, 140, 0.767);
+  background-color: rgba(252, 219, 86, 0.575);
   text-align: center;
 }
 
@@ -52,15 +64,22 @@ header {
 
 legend {
   color: white;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 50px;
+  text-shadow: 2px 2px #bdaa06;
+
 }
 
 input {
   display: block;
   margin: auto;
-  padding: 10px;
+  padding: 1px;
   border: 3px solid yellow;
   margin-bottom: 10px;
   opacity: .7;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 25px;
+  color: black;
 
 }
 
@@ -135,6 +154,8 @@ input {
   opacity: .7;
   color: black;
   margin: auto;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 25px;
 }
  
 img {
@@ -149,4 +170,18 @@ img {
 
 p {
   text-align: center;
+}
+
+#gameMessage, #message {
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 25px;
+  color: white;
+  text-shadow: 2px 2px #bdaa06;
+}
+
+.game-message, .playerTurn, .gameStatMessage {
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 25px;
+  color: white;
+  text-shadow: 2px 2px #bdaa06;
 }

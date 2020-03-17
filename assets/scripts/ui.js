@@ -25,6 +25,7 @@ const signInSuccess = function (data) {
   $('.play-view').show()
   $('.signInView').hide()
   $('.container').hide()
+  $('.signInText').val('')
 }
 
 const signInFailure = function (error) {
@@ -56,6 +57,7 @@ const signOutSuccess = function (data) {
   $('.play-view').hide()
   $('.signInView').show()
   $('#gameMessage').hide()
+  $('.playerTurn').hide()
 }
 
 const signOutFailure = function (error) {
