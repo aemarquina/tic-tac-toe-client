@@ -10,7 +10,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-      
+
       <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -69,12 +69,15 @@
     <form id="change-password" class="border">
       <fieldset class="changePassword">
             <legend>Change Password!</legend>
+            <div class="changePasswordShow">
             <input type='password' name="passwords[old]" placeholder="Password">
             <input type="password" name="passwords[new]" 
             placeholder="New password">
             <input type= Submit value="Change Password!">
+            </div>
       </fieldset>
    </form>
+   <button class='changePasswordButton'>Change Password!</button>
     <form id="sign-out" class="border">
         <fieldset class="signOut">
           <legend>Sign out!</legend>

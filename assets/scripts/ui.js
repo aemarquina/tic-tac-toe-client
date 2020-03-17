@@ -26,6 +26,8 @@ const signInSuccess = function (data) {
   $('.signInView').hide()
   $('.container').hide()
   $('.signInText').val('')
+  $('.changePasswordShow').hide()
+  $('.gameStatMessage').hide()
 }
 
 const signInFailure = function (error) {

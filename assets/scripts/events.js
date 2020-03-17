@@ -89,6 +89,8 @@ const startNewGame = function () {
   gameOver = false
   count = 0
   $('.container').show()
+  $('.changePasswordShow').hide()
+  $('.changePasswordButton').show()
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
@@ -121,6 +123,12 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+const onChangePasswordButton = function (event) {
+  $('.changePasswordShow').show()
+  $('.changePasswordButton').hide()
+  $('#message').hide()
+}
+
 const onSignOut = function (event) {
   event.preventDefault()
   console.log('Signed Out!')
@@ -151,5 +159,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onGameStats,
-  updateGameStats
+  updateGameStats,
+  onChangePasswordButton
 }

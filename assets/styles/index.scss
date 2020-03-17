@@ -149,13 +149,14 @@ input {
 
 }
 
-.signInButton, .signUpButton, .newGameButton, .gameStatsButton {
+.signInButton, .signUpButton, .newGameButton, .gameStatsButton, .changePasswordButton {
   background-color: white;
   opacity: .7;
   color: black;
   margin: auto;
   font-family: 'Nanum Pen Script', cursive;
   font-size: 25px;
+  border: 3px solid yellow;
 }
  
 img {
@@ -184,4 +185,9 @@ p {
   font-size: 25px;
   color: white;
   text-shadow: 2px 2px #bdaa06;
+}
+
+.changePasswordButton {
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
