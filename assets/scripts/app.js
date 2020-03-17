@@ -6,6 +6,15 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const tEvents = require('./events')
+
 $(() => {
-  // your JS code goes here
+  // register click handler for tic tac toe board
+  $('.block').on('click', tEvents.clickT)
+  $('.newGame').on('click', tEvents.startNewGame)
+  $('#sign-up').on('submit', tEvents.onSignUp)
+  $('#sign-in').on('submit', tEvents.onSignIn)
+  $('#change-password').on('submit', tEvents.onChangePassword)
+  $('#sign-out').on('submit', tEvents.onSignOut)
+  $('.gameStats').on('click', tEvents.onGameStats)
 })
