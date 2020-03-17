@@ -11,5 +11,10 @@ const tEvents = require('./events')
 $(() => {
   // register click handler for tic tac toe board
   $('.block').on('click', tEvents.clickT)
-  $('.newGame').on('click',tEvents.startNewGame)
+  $('.newGame').on('click', tEvents.startNewGame)
+  $('#sign-up').on('submit', tEvents.onSignUp)
+  $('#sign-in').on('submit', tEvents.onSignIn)
+  $('#change-password').on('submit', tEvents.onChangePassword)
+  $('#sign-out').on('submit', tEvents.onSignOut)
+  $('.gameStats').on('click', tEvents.onGameStats)
 })

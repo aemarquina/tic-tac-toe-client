@@ -1,12 +1,12 @@
 // make sure to attach to other files
 // create variable and put path for api, and ui
+const getFormFields = require('../../lib/get-form-fields')
+const api = require('./api')
+const ui = require('./ui')
 
 let board = [null, null, null, null, null, null, null, null, null]
 let count = 0
-$('.block').on('click', function () {
-  // console.log(count)
-}
-)
+$('.play-view').hide()
 
 let gameOver = false
 // make sure that a clicking event is registered
@@ -46,12 +46,12 @@ const clickT = function (event) {
 function getResult (player) {
   if (count > 4) {
     if (winner(player)) {
-      $('.game-message').text('You Win!')
+      $('.game-message').text('Player ' + player + ' Wins!')
       $('.playerTurn').text('')
       return true
     }
   } if (count === 9) {
-    $('.game-message').text('You Tie!')
+    $('.game-message').text('Its a draw!')
     $('.playerTurn').text('')
     gameOver = true
     return true
@@ -85,12 +85,71 @@ const startNewGame = function () {
   board = [null, null, null, null, null, null, null, null, null]
   $('.block').text('')
   $('.game-message').text('')
+  $('.playerTurn').text('')
   gameOver = false
   count = 0
+  $('.container').show()
+  api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
 
+const onSignUp = function (event) {
+  event.preventDefault()
+  console.log('Signing up')
+  const data = getFormFields(event.target)
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
+}
+
+const onSignIn = function (event) {
+  event.preventDefault()
+  console.log('Signed in')
+  const data = getFormFields(event.target)
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  console.log('Changed password!')
+  const data = getFormFields(event.target)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  console.log('Signed Out!')
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
+const onGameStats = function () {
+  event.preventDefault()
+  console.log('Got stats')
+  api.getStats()
+    .then(ui.getGameStatsSuccess)
+    .catch(ui.getGameStatsFailure)
+}
+
+const updateGameStats = function (player, id) {
+  api.updateStats(player, id)
+    .then(ui.updateStatsSuccess)
+    .catch(ui.updateGameStatsFailure)
 }
 
 module.exports = {
   clickT,
-  startNewGame
+  startNewGame,
+  onSignUp,
+  onSignIn,
+  onChangePassword,
+  onSignOut,
+  onGameStats,
+  updateGameStats
 }

@@ -12,22 +12,74 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-        <h1>Tic Tac Toe</h1> 
-<div class='container'>
-      <p class='game-message'></p>
-      <p class='playerTurn'></p>
-      <div class='tTable'>
-          <div class='block' id='0'></div>
-          <div class='block' id='1'></div>
-          <div class='block' id='2'></div>
-          <div class='block' id='3'></div>
-          <div class='block' id='4'></div>
-          <div class='block' id='5'></div>
-          <div class='block' id='6'></div>
-          <div class='block' id='7'></div>
-          <div class='block' id='8'></div> 
+    <header>
+    <h1>Tic Tac Toe</h1> 
+  </header>
+    <p id='gameMessage'></p>
+    <p id='message'></p>
+    <div class='signInView'>
+        <form id="sign-up" class="border">
+          <fieldset class="signUp">
+            <legend>Sign Up!</legend>
+            <input type="text" name="credentials[email]"
+            placeholder="Email">
+            <input type='password' name="credentials[password]" placeholder="Password">
+            <input type="password" name="credentials[password_confirmation]" 
+            placeholder="Confirm password">
+            <input class='signUpButton' type= Submit value="Sign up!">
+          </fieldset>
+        </form>
+        <form id="sign-in" class="border">
+          <fieldset class="signIn">
+            <legend>Sign In!</legend>
+            <input class='signInText' type="text" name="credentials[email]"
+            placeholder="Email">
+            <input class='signInText' type='password' name="credentials[password]" placeholder="Password">
+            <input class='signInButton' type= Submit value="Sign in!">
+          </fieldset>
+        </form>
       </div>
-</div>
-      <button class='newGame' type=button>New Game</button>
+<div class='play-view'>    
+  <div class='gameButtons'>
+    <button class='newGame newGameButton' type=button>New Game</button>
+    <button class='gameStats gameStatsButton' type=button>Stats</button>
+  </div>
+
+    <p class='game-message'></p>
+    <p class='playerTurn'></p> 
+    <div class='container'>
+        <div class='tTable'>
+            <div class='block row1 column1' id='0'></div>
+            <div class='block row1 column2' id='1'></div>
+            <div class='block row1 column3' id='2'></div>
+            <div class='block row2 column1' id='3'></div>
+            <div class='block row2 column2' id='4'></div>
+            <div class='block row2 column3' id='5'></div>
+            <div class='block row3 column1' id='6'></div>
+            <div class='block row3 column2' id='7'></div>
+            <div class='block row3 column3' id='8'></div> 
+        </div>
+  </div>
+  
+  <p class='gameStatMessage'></p>
+  <div data-cell-index='0'></div>
+        
+    <form id="change-password" class="border">
+      <fieldset class="changePassword">
+            <legend>Change Password!</legend>
+            <input type='password' name="passwords[old]" placeholder="Password">
+            <input type="password" name="passwords[new]" 
+            placeholder="New password">
+            <input type= Submit value="Change Password!">
+      </fieldset>
+   </form>
+    <form id="sign-out" class="border">
+        <fieldset class="signOut">
+          <legend>Sign out!</legend>
+          <input type= Submit value="Sign Out!">
+        </fieldset>
+    </form>
+      
+</div>      
     </body>
 </html>
