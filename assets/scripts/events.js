@@ -53,7 +53,6 @@ function getResult (player) {
   } if (count === 9) {
     $('.game-message').text('Its a draw!')
     $('.playerTurn').text('')
-    gameOver = true
     return true
   } return false
 }

@@ -3,9 +3,11 @@
 const store = require('./store')
 
 const signUpSuccess = function (data) {
+  $('#message').show()
   $('#message').text('Signed up successfully❕')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('.signUpText').val('')
   console.log('signUpSuccess data is: ' + data)
 }
 
@@ -41,6 +43,7 @@ const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully❕')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('.changePasswordText').val('')
   console.log('changePasswordSuccess data is: ' + data)
 }
 
