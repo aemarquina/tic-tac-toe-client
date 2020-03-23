@@ -52,7 +52,7 @@ const newGame = function (data) {
   })
 }
 
-const updateStats = function (player, id) {
+const updateStats = function (a, b, c) {
   return $.ajax({
     url: config.apiUrl + '/games' + `/${store.game}`,
     method: 'PATCH',
@@ -62,11 +62,11 @@ const updateStats = function (player, id) {
     data: {
       game: {
         cell: {
-          index: id,
-          value: player
-        }
-      },
-      over: false
+          index: b,
+          value: a
+        },
+        over: c
+      }
     }
   })
 }

@@ -8,21 +8,18 @@ const signUpSuccess = function (data) {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('.signUpText').val('')
-  console.log('signUpSuccess data is: ' + data)
 }
 
 const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('signUpFailure data is: ', error)
 }
 
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully❕')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('signInSuccess data is: ' + data)
   store.user = data.user
   $('.play-view').show()
   $('.signInView').hide()
@@ -30,13 +27,13 @@ const signInSuccess = function (data) {
   $('.signInText').val('')
   $('.changePasswordShow').hide()
   $('.gameStatMessage').hide()
+  $('.changePasswordButton').show()
 }
 
 const signInFailure = function (error) {
   $('#message').text('🛑 Error on sign in 🛑')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('signInFailure data is: ', error)
 }
 
 const changePasswordSuccess = function (data) {
@@ -44,47 +41,52 @@ const changePasswordSuccess = function (data) {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('.changePasswordText').val('')
-  console.log('changePasswordSuccess data is: ' + data)
+  $('#message').show()
+  $('.game-message').hide()
+  $('.changePasswordShow').hide()
+  $('.changePasswordButton').show()
 }
 
 const changePasswordFailure = function (error) {
   $('#message').text('🛑 Error changing password 🛑')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('changePasswordFailure data is: ', error)
 }
 
 const signOutSuccess = function (data) {
   $('#message').text('Signed out successfully❕')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('signOutSuccess data is: ' + data)
   $('.play-view').hide()
   $('.signInView').show()
   $('#gameMessage').hide()
   $('.playerTurn').hide()
+  $('#message').show()
+  $('.game-message').hide()
 }
 
 const signOutFailure = function (error) {
   $('#message').text('🛑 Error signing out 🛑')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('signOutFailure data is: ', error)
 }
 
 const newGameSuccess = function (data) {
+  $('.playerTurn').show()
   $('#gameMessage').text('You are starting a new game❕')
   $('.gameStatMessage').hide()
   $('#message').hide()
+  $('.game-message').show()
   store.game = data.game.id
 }
 
 const newGameFailure = function () {
   $('#gameMessage').text('You are unable to start a new game')
+  $('.playerTurn').hide()
 }
 
 const updateGameStatsSuccess = function (data) {
-  $('#gameMessage').text('You are unable to update new game')
+  $('#gameMessage').text('You are able to update new game')
 }
 
 const updateGameStatsFailure = function () {
@@ -92,9 +94,11 @@ const updateGameStatsFailure = function () {
 }
 
 const getGameStatsSuccess = function (data) {
-  console.log(data)
   $('.gameStatMessage').show()
   $('.gameStatMessage').text('You played ' + data.games.length + ' games❕')
+  $('#message').hide()
+  $('.game-message').hide()
+  $('.playerTurn').show()
 }
 
 const getGameStatsFailure = function (data) {

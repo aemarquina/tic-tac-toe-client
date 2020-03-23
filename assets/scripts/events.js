@@ -15,6 +15,9 @@ const clickT = function (event) {
   const id = event.target.id
   const player = (count % 2 === 0) ? 'X' : 'O'
 
+  $('#gameMessage').hide()
+  $('.game-message').show()
+
   if (gameOver) {
     $('.game-message').text('Game Over')
     return
@@ -41,6 +44,7 @@ const clickT = function (event) {
   if (getResult(player)) {
     gameOver = true
   }
+  updateGameStats(player, id, gameOver)
 }
 
 function getResult (player) {
@@ -126,6 +130,8 @@ const onChangePasswordButton = function (event) {
   $('.changePasswordShow').show()
   $('.changePasswordButton').hide()
   $('#message').hide()
+  $('.game-message').hide()
+  $('.gameStatMessage').hide()
 }
 
 const onSignOut = function (event) {
@@ -136,17 +142,16 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onGameStats = function () {
+const onGameStats = function (event) {
   event.preventDefault()
-  console.log('Got stats')
   api.getStats()
     .then(ui.getGameStatsSuccess)
     .catch(ui.getGameStatsFailure)
 }
 
-const updateGameStats = function (player, id) {
-  api.updateStats(player, id)
-    .then(ui.updateStatsSuccess)
+const updateGameStats = function (player, id, gameOver) {
+  api.updateStats(player, id, gameOver)
+    .then(ui.updateGameStatsSuccess)
     .catch(ui.updateGameStatsFailure)
 }
 
