@@ -16,14 +16,14 @@
 ## Link to wireframes and user stories.
 
 User stories
-... 1. As an unregistered user, I would like to be able to sign up
-... 2. As a registered user, I would like to sign in 
-... 3. As a registered user, I would like to change my password
-... 4. As a registered user, I would like to play tic tac toe
-... 5. As registered user who has played games, I would like to see my stats
-... 6. As a registered user, I would like to start a new game.
-... 7. As a registered user, I would like to be able to sign out
-... 8. As a registered user, I would like to be able to win a game
+1. As an unregistered user, I would like to be able to sign up
+2. As a registered user, I would like to sign in 
+3. As a registered user, I would like to change my password
+4. As a registered user, I would like to play tic tac toe
+5. As registered user who has played games, I would like to see my stats
+6. As a registered user, I would like to start a new game.
+7. As a registered user, I would like to be able to sign out
+8. As a registered user, I would like to be able to win a game
 
 
 
