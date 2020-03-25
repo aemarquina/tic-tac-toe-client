@@ -14,6 +14,7 @@ const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('.signUpText').val('')
 }
 
 const signInSuccess = function (data) {
@@ -34,6 +35,7 @@ const signInFailure = function (error) {
   $('#message').text('🛑 Error on sign in 🛑')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('.signInText').val('')
 }
 
 const changePasswordSuccess = function (data) {
@@ -51,6 +53,7 @@ const changePasswordFailure = function (error) {
   $('#message').text('🛑 Error changing password 🛑')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('.changePasswordText').val('')
 }
 
 const signOutSuccess = function (data) {
